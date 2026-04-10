@@ -1,0 +1,10 @@
+{
+  "name": "CAMBTI",
+  "short_name": "CAMBTI",
+  "description": "相机品牌人格测试",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3efe4",
+  "theme_color": "#201b16"
+}
+

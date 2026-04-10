@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAMBTI | 相机品牌人格测试</title>
+    <meta name="theme-color" content="#201b16" />
+    <meta
+      name="description"
+      content="一个不太严肃的相机品牌人格测试：测出你更像哪种相机用户。"
+    />
+    <meta property="og:title" content="CAMBTI | 相机品牌人格测试" />
+    <meta
+      property="og:description"
+      content="31 道题，测出你的相机品牌人格和中文互联网器材嘴脸。"
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-mark" href="#top">CAMBTI</a>
+        <div class="site-header-meta">
+          <span>Camera Brand Type Indicator</span>
+          <span>Static Site / GitHub Pages Ready</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="app-shell" id="top">
+      <section class="panel hero-panel active" data-screen="intro">
+        <div class="hero-copy">
+          <p class="eyebrow">CAMBTI / Camera Brand Type Indicator</p>
+          <h1>相机品牌人格测试</h1>
+          <p class="lede">
+            MBTI 已经卷不动了。真正暴露你赛博人格的，不是 E 还是 I，
+            是你会不会一边吐槽对焦抽风，一边嘴硬说“但这个色彩是真的能打”。
+          </p>
+          <div class="hero-tags" aria-label="测试标签">
+            <span>31 道题</span>
+            <span>纯中文</span>
+            <span>中文互联网嘴替版</span>
+            <span>相机圈限定</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="spec-line">
+            <span>测试说明</span>
+            <span>请凭第一反应作答</span>
+          </div>
+          <ul class="rules">
+            <li>题目没有标准答案，只有更容易暴露机位癖好的答案。</li>
+            <li>结果仅供整活，不负责劝你退坑，也不负责劝你加购镜头。</li>
+            <li>如果测出 Leica 或 Hasselblad，请先确认银行卡没有进入贤者模式。</li>
+          </ul>
+          <button class="primary-button" id="startButton">开始测试</button>
+        </div>
+
+        <section class="intro-strip span-full">
+          <article class="teaser-card">
+            <p class="eyebrow">热门嘴替</p>
+            <h3>“这不是跑焦，是情绪在晃。”</h3>
+            <p>适用于富士、徕卡，以及所有把翻车包装成风格的人。</p>
+          </article>
+          <article class="teaser-card">
+            <p class="eyebrow">高频症状</p>
+            <h3>“先别聊审美，你这场到底拍没拍到？”</h3>
+            <p>适用于索尼、佳能、尼康，以及一切效率人格。</p>
+          </article>
+          <article class="teaser-card">
+            <p class="eyebrow">消费预警</p>
+            <h3>“我本来只是看看，怎么就想上中画幅和无人机了。”</h3>
+            <p>适用于哈苏、大疆，以及所有内容升级型钱包事故。</p>
+          </article>
+        </section>
+
+        <section class="brand-lab span-full">
+          <div class="section-head">
+            <h3>本次出厂人格</h3>
+            <p>10 个品牌原型，专治嘴硬、加购和审美自证。</p>
+          </div>
+          <div class="brand-roster" id="brandRoster"></div>
+          <div class="section-head section-subhead">
+            <h3>题风预览</h3>
+            <p>整套题目就是把器材评论区搬进测试里。</p>
+          </div>
+          <div class="sample-questions" id="sampleQuestions"></div>
+        </section>
+
+        <section class="how-it-works span-full">
+          <div class="section-head">
+            <h3>怎么玩</h3>
+            <p>这不是科学测试，这是把器材群聊天记录压成 31 道选择题。</p>
+          </div>
+          <div class="flow-grid">
+            <article class="flow-card">
+              <strong>01</strong>
+              <h4>选你最真实的嘴硬反应</h4>
+              <p>别按理性答。越像你平时会发在群里的话，结果越准。</p>
+            </article>
+            <article class="flow-card">
+              <strong>02</strong>
+              <h4>系统判定你的品牌 MBTI</h4>
+              <p>它会综合对焦焦虑、视频脑、复古执念和消费幻觉。</p>
+            </article>
+            <article class="flow-card">
+              <strong>03</strong>
+              <h4>下载海报发给朋友互相伤害</h4>
+              <p>结果页带截图卡和海报，适合群聊、朋友圈和器材评论区。</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="panel quiz-panel" data-screen="quiz" aria-live="polite">
+        <div class="quiz-head">
+          <div>
+            <p class="eyebrow">答题阶段</p>
+            <h2 id="progressLabel">第 1 / 31 题</h2>
+          </div>
+          <button class="ghost-button" id="restartFromQuiz">重置</button>
+        </div>
+
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <article class="question-card">
+          <p class="question-tip">别切去 B 站和小红书搜“老师怎么选”，这题测的就是你的嘴硬方向。</p>
+          <h3 id="questionText"></h3>
+          <div class="options" id="optionsContainer"></div>
+        </article>
+
+        <div class="quiz-actions">
+          <button class="ghost-button" id="prevButton">上一题</button>
+          <p class="micro-copy">你每多纠结 3 秒，购物车里就会多长出一支镜头。</p>
+        </div>
+      </section>
+
+      <section class="panel result-panel" data-screen="result" aria-live="polite">
+        <div class="result-top">
+          <div>
+            <p class="eyebrow">测试结果</p>
+            <h2 id="resultCode"></h2>
+            <p class="result-subtitle" id="resultSubtitle"></p>
+          </div>
+          <div class="score-badge">
+            <span>匹配度</span>
+            <strong id="matchScore">88%</strong>
+          </div>
+        </div>
+
+        <article class="result-card">
+          <p class="result-summary" id="resultSummary"></p>
+          <p class="result-detail" id="resultDetail"></p>
+          <blockquote id="resultDeclaration"></blockquote>
+        </article>
+
+        <section class="result-grid">
+          <article class="mini-card">
+            <h3>典型嘴脸</h3>
+            <p id="resultStrengths"></p>
+          </article>
+          <article class="mini-card">
+            <h3>翻车风险</h3>
+            <p id="resultWarning"></p>
+          </article>
+          <article class="mini-card">
+            <h3>圈内风评</h3>
+            <p id="resultCompatibility"></p>
+          </article>
+        </section>
+
+        <section class="dimension-card">
+          <div class="section-head">
+            <h3>离谱维度评分</h3>
+            <p>你不是一个人，你是一整套中文互联网器材发言模板。</p>
+          </div>
+          <div class="dimensions" id="dimensionsContainer"></div>
+        </section>
+
+        <section class="share-card">
+          <div class="section-head">
+            <h3>战报卡片</h3>
+            <p>适合直接复制发群，给朋友一点品牌人格震撼。</p>
+          </div>
+          <div class="share-layout">
+            <article class="share-preview" id="sharePreview"></article>
+            <aside class="share-side">
+              <p class="share-side-copy" id="runnerUpText"></p>
+              <button class="ghost-button" id="copyResultButton">复制结果文案</button>
+            </aside>
+          </div>
+        </section>
+
+        <section class="share-card">
+          <div class="section-head">
+            <h3>分享海报与截图卡</h3>
+            <p>每个品牌都会变成一个像素小人，适合直接下载发朋友圈或群聊。</p>
+          </div>
+          <div class="poster-grid">
+            <article class="poster-card">
+              <div class="poster-head">
+                <div>
+                  <p class="eyebrow">竖版海报</p>
+                  <h3>朋友圈长图</h3>
+                </div>
+                <button class="ghost-button" id="downloadPosterButton">下载海报</button>
+              </div>
+              <canvas id="posterCanvas" width="1080" height="1440"></canvas>
+            </article>
+            <article class="poster-card">
+              <div class="poster-head">
+                <div>
+                  <p class="eyebrow">横版截图卡</p>
+                  <h3>聊天框速发图</h3>
+                </div>
+                <button class="ghost-button" id="downloadStoryButton">下载截图卡</button>
+              </div>
+              <canvas id="storyCanvas" width="1200" height="675"></canvas>
+            </article>
+          </div>
+        </section>
+
+        <div class="result-actions">
+          <button class="primary-button" id="retakeButton">再测一次</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <p>CAMBTI 是一个纯前端静态站，适合直接部署到 GitHub Pages。</p>
+        <p>结果仅供整活，不构成任何购机建议，也不负责拦你加镜头。</p>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
