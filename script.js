@@ -1670,7 +1670,7 @@ function renderPosterAssets(resultData) {
   drawRoundedRect(posterCtx, 122, 548, 776, 222, 26, "rgba(255,255,255,0.72)", "rgba(32,27,22,0.05)");
   posterCtx.font = "600 30px PingFang SC, Microsoft YaHei, sans-serif";
   posterCtx.fillStyle = visual.primary;
-  posterCtx.fillText("中文互联网高危发言", 156, 606);
+  posterCtx.fillText("嘴硬发言", 156, 606);
   posterCtx.fillStyle = "#201b16";
   posterCtx.font = "500 28px PingFang SC, Microsoft YaHei, sans-serif";
   drawWrappedText(posterCtx, winningBrand.declaration, 156, 662, 700, 42, 3);
