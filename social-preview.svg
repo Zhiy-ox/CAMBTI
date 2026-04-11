@@ -39,4 +39,6 @@
     <text x="24" y="31" fill="#64584d" font-size="18" font-family="PingFang SC, Microsoft YaHei, sans-serif">一句话</text>
     <text x="24" y="58" fill="#201b16" font-size="22" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-weight="700">测完很容易当场破防</text>
   </g>
+  <rect x="110" y="520" width="540" height="42" rx="16" fill="#201b16" opacity="0.08"/>
+  <text x="134" y="548" fill="#201b16" font-size="22" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-weight="700">zhiy-ox.github.io/CAMBTI</text>
 </svg>

@@ -353,6 +353,8 @@ const brandBadgeLabels = {
   DJI: "大疆",
 };
 
+const siteUrl = "https://zhiy-ox.github.io/CAMBTI/";
+
 const pixelPalettes = {
   FUJI: {
     s: "#efc3a1",
@@ -1698,6 +1700,9 @@ function renderPosterAssets(resultData) {
   posterCtx.fillStyle = "#64584d";
   posterCtx.font = "500 24px PingFang SC, Microsoft YaHei, sans-serif";
   drawWrappedText(posterCtx, "你不是一个人在嘴硬，你是一整套器材评论区发言模板。", 122, 1196, 760, 36, 2);
+  posterCtx.fillStyle = visual.primary;
+  posterCtx.font = "600 22px PingFang SC, Microsoft YaHei, sans-serif";
+  posterCtx.fillText(siteUrl, 122, 1278);
 
   const storyCtx = storyCanvas.getContext("2d");
   storyCtx.clearRect(0, 0, storyCanvas.width, storyCanvas.height);
@@ -1745,6 +1750,9 @@ function renderPosterAssets(resultData) {
   storyCtx.fillStyle = "#201b16";
   storyCtx.font = "500 28px PingFang SC, Microsoft YaHei, sans-serif";
   drawWrappedText(storyCtx, winningBrand.declaration, 82, 538, 980, 40, 2);
+  storyCtx.fillStyle = visual.primary;
+  storyCtx.font = "600 20px PingFang SC, Microsoft YaHei, sans-serif";
+  storyCtx.fillText(siteUrl, 82, 612);
 }
 
 function renderBrandRoster() {
@@ -1802,6 +1810,7 @@ function buildShareText(winningBrand, percent, runnerUpBrand, traits) {
     `高危维度：${topTraits}`,
     `一句话总结：${winningBrand.subtitle}`,
     `嘴硬发言：${winningBrand.declaration}`,
+    `测试链接：${siteUrl}`,
   ].join("\n");
 }
 
@@ -1835,6 +1844,10 @@ function renderShareCard(winningBrand, percent, runnerUpBrand, traits) {
       <div class="share-chip">
         <strong>高危维度</strong>
         <span>${topTraits.map(([trait]) => traitLabels[trait]).join(" / ")}</span>
+      </div>
+      <div class="share-chip">
+        <strong>测试链接</strong>
+        <span>${siteUrl}</span>
       </div>
     </div>
   `;
