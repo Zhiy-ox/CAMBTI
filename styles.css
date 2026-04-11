@@ -686,8 +686,16 @@ blockquote {
 }
 
 .share-chip {
+  flex: 1 1 220px;
+  min-width: 0;
   padding: 12px 14px;
   border-radius: 14px;
+}
+
+.share-chip span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .share-side {

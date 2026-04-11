@@ -264,6 +264,19 @@ const traitLabels = {
   aerial: "飞天冲动值",
 };
 
+const traitShortLabels = {
+  retro: "复古嘴硬",
+  autofocus: "对焦安全",
+  menus: "菜单耐性",
+  video: "视频脑",
+  street: "街拍蹲人",
+  gear: "器材理财",
+  redDot: "品牌信仰税",
+  outdoors: "户外吃苦",
+  luxury: "中画幅仙气",
+  aerial: "飞天冲动",
+};
+
 const traitDescriptions = {
   retro: "你会不会为了配色和氛围，主动放过理性。",
   autofocus: "你有多不能接受相机没看懂你要拍谁。",
@@ -1632,7 +1645,7 @@ function renderPosterAssets(resultData) {
   const topTraits = Object.entries(traits)
     .sort((a, b) => b[1] - a[1])
     .slice(0, 3)
-    .map(([trait]) => traitLabels[trait]);
+    .map(([trait]) => trait);
 
   const posterCtx = posterCanvas.getContext("2d");
   posterCtx.clearRect(0, 0, posterCanvas.width, posterCanvas.height);
@@ -1691,8 +1704,8 @@ function renderPosterAssets(resultData) {
       index % 2 === 0 ? visual.accent : `${visual.secondary}33`
     );
     posterCtx.fillStyle = "#201b16";
-    posterCtx.font = "700 26px PingFang SC, Microsoft YaHei, sans-serif";
-    drawWrappedText(posterCtx, trait, 178 + index * 226, 972, 150, 34, 2);
+    posterCtx.font = "700 18px PingFang SC, Microsoft YaHei, sans-serif";
+    posterCtx.fillText(traitShortLabels[trait] || traitLabels[trait] || trait, 178 + index * 226, 968);
   });
   posterCtx.fillStyle = visual.primary;
   posterCtx.font = "600 28px PingFang SC, Microsoft YaHei, sans-serif";
@@ -1746,7 +1759,12 @@ function renderPosterAssets(resultData) {
   storyCtx.fillText(percent, 382, 438);
   storyCtx.font = "700 24px PingFang SC, Microsoft YaHei, sans-serif";
   storyCtx.fillText(runnerUpBrand.name, 594, 438);
-  drawWrappedText(storyCtx, topTraits.slice(0, 2).join(" / "), 900, 438, 170, 30, 2);
+  storyCtx.font = "700 18px PingFang SC, Microsoft YaHei, sans-serif";
+  storyCtx.fillText(
+    topTraits.slice(0, 2).map((trait) => traitShortLabels[trait] || traitLabels[trait] || trait).join(" / "),
+    900,
+    438
+  );
   storyCtx.fillStyle = "#201b16";
   storyCtx.font = "500 28px PingFang SC, Microsoft YaHei, sans-serif";
   drawWrappedText(storyCtx, winningBrand.declaration, 82, 538, 980, 40, 2);
@@ -1843,7 +1861,7 @@ function renderShareCard(winningBrand, percent, runnerUpBrand, traits) {
       </div>
       <div class="share-chip">
         <strong>高危维度</strong>
-        <span>${topTraits.map(([trait]) => traitLabels[trait]).join(" / ")}</span>
+        <span>${topTraits.map(([trait]) => traitShortLabels[trait] || traitLabels[trait]).join(" / ")}</span>
       </div>
       <div class="share-chip">
         <strong>测试链接</strong>
