@@ -366,7 +366,7 @@ const brandBadgeLabels = {
   DJI: "大疆",
 };
 
-const siteUrl = "https://zhiy-ox.github.io/CAMBTI/";
+const siteUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
 
 const pixelPalettes = {
   FUJI: {
